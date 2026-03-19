@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paso Justo - Productos para canjear</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/productos.css">
+</head>
+
+<body>
+    <!-- Corrección:
+         Se usa una estructura semántica con <header> en lugar de un contenedor genérico,
+         para mejorar la organización del contenido. -->
+    <header class="container mt-4">
+        <div class="row mb-4">
+            <div class="col-12">
+                 <!-- Corrección:
+                     Antes había un <div class="h1">.
+                     Ahora se usa un h1 real para accesibilidad y jerarquía correcta -->
+                <h1 class="display-6">
+                    <i class="fas fa-gift me-2" ></i>
+                    Productos disponibles para canjear
+                </h1>
+                <p class="lead">Canjea tus puntos por productos en comercios afiliados</p>
+            </div>
+        </div>
+    </header>
+
+          <!-- Información del usuario y puntos -->
+        <section class="row mb-4" aria-label="Información del usuario y puntos">
+            <div class="col-md-6">
+
+                <!-- Corrección:
+                     Se usa <article> para agrupar el contenido informativo de la tarjeta. -->
+                <article class="card mb-3 h-100">
+                    <div class="card-header bg-primary text-white">
+
+                        <!-- Corrección:
+                             Se cambia a un encabezado real <h2> en lugar de solo texto visual. -->
+                        <h2 class="h5 mb-0">
+                            <i class="fas fa-user me-2" ></i>
+                            Información del usuario
+                        </h2>
+                    </div>
+              <div class="card-body d-flex align-items-start gap-3">
+
+                        <!-- Corrección:
+                             Se agregó un alt descriptivo a la imagen para lectores de pantalla.
+                             Antes la imagen no describía adecuadamente su propósito. -->
+                        <img
+                            src="https:enlanceimagen"
+                            class="rounded-circle"
+                            alt="Foto de perfil del usuario registrado"
+                            width="50"
+                            height="50" >
+
+                        <div>
+                            <p class="mb-2"><strong>Nombre:</strong> <span id="nombreUsuario">Cargando...</span></p>
+                            <p class="mb-0"><strong>Correo:</strong> <span id="correoUsuario">Cargando...</span></p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+         <div class="col-md-6">
+                <article class="card puntos-card h-100">
+                    <div class="card-header bg-success text-white">
+
+                        <!-- Corrección:
+                             Se usa <h2> para mantener jerarquía de encabezados consistente. -->
+                        <h2 class="h5 mb-0">
+                            <i class="fas fa-coins me-2" ></i>
+                            Tus puntos
+                        </h2>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="row text-center">
+                            <div class="col-md-4 col-12 mb-3 mb-md-0">
+                                <div class="puntos-tipo">
+
+                                    <!-- Corrección:
+                                         Se agrega aria-label para describir el dato dinámico.
+                                         También se agrega aria-live="polite" para que el lector de
+                                         pantalla anuncie cambios sin interrumpir bruscamente. -->
+                                    <div
+                                        class="puntos-valor"
+                                        id="puntosDisponibles"
+                                        aria-label="Puntos disponibles"
+                                        aria-live="polite"
+                                    >
+                                        0
+                                    </div>
+                                    <div class="puntos-label">Disponibles</div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-12 mb-3 mb-md-0">
+                                <div class="puntos-tipo">
+                                    <div
+                                        class="puntos-valor"
+                                        id="puntosCanjeados"
+                                        aria-label="Puntos canjeados"
+                                        aria-live="polite"
+                                    >
+                                        0
+                                    </div>
+                                    <div class="puntos-label">Canjeados</div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-12">
+                                <div class="puntos-tipo">
+                                    <div
+                                        class="puntos-valor"
+                                        id="puntosTotales"
+                                        aria-label="Puntos totales"
+                                        aria-live="polite"
+                                    >
+                                        0
+                                    </div>
+                                    <div class="puntos-label">Totales</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+   <!-- Leyenda -->
+
+        <section class="row mb-4" aria-labelledby="titulo-leyenda">
+            <div class="col-12">
+                <article class="card">
+                    <div class="card-header bg-light">
+
+                        <!-- Corrección:
+                             Se usa encabezado semántico real para estructurar mejor la página. -->
+                        <h2 class="h5 mb-0" id="titulo-leyenda">
+                            <i class="fas fa-info-circle me-2" ></i>
+                            Leyenda de colores
+                        </h2>
+                    </div>
+                    
+                     <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4 mb-3 mb-md-0">
+                                <div class="color-legend-item">
+
+                                    <!-- Corrección:
+                                         aria-hidden="true" porque esta caja es decorativa y
+                                         no necesita ser anunciada por lectores de pantalla. -->
+                                    <div class="color-box verde" aria-hidden="true"></div>
+
+                                    <div class="color-text">
+                                        <strong>Verde:</strong> Puedes canjear el producto con tus puntos disponibles.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 mb-3 mb-md-0">
+                                <div class="color-legend-item">
+                                    <div class="color-box naranja" aria-hidden="true"></div>
+                                    <div class="color-text">
+                                        <strong>Naranja:</strong> Te faltan menos del 50% de puntos para canjearlo.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="color-legend-item">
+                                    <div class="color-box rojo" aria-hidden="true"></div>
+                                    <div class="color-text">
+                                        <strong>Rojo:</strong> Te faltan más del 50% de puntos para canjearlo.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+<!-- Productos -->
+        <section class="row" aria-labelledby="titulo-productos"> 
+            <div class="col-12">
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-3 gap-2">
+
+                    <!-- Corrección: Se usa <h2> en vez de contenedores visuales para el título de sección. -->
+                    <h2 class="h3 mb-0" id="titulo-productos">Productos disponibles</h2>
+
+                    <!-- Corrección: Se utiliza un botón real <button> en lugar de usar role="button"
+                         sobre otro elemento. Esto mejora la accesibilidad y la interacción por teclado. -->
+                    <button
+                        type="button"
+                        class="btn btn-primary"
+                        id="filtroBtn"
+                        aria-label="Filtrar productos disponibles"
+                        onclick="alert('Filtro no implementado')"
+                    >
+                        <i class="fas fa-filter" aria-hidden="true"></i>
+                        Filtrar
+                    </button>
+                </div>
+
+                <!-- Corrección:aria-live="polite" para anunciar cambios cuando se carguen o actualicen productos.
+                     También se agrega un aria-label descriptivo. -->
+                <div
+                    id="productos-container"
+                    class="row"
+                    aria-live="polite"
+                    aria-label="Listado dinámico de productos"
+                >
+                    <div class="col-12 text-center py-5">
+
+                        <div class="spinner-border text-primary" role="status" aria-label="Cargando productos">
+                            <span class="visually-hidden">Cargando productos...</span>
+                        </div>
+
+                        <p class="mt-3">Cargando productos...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+ <!-- Corrección :
+         Se eliminan estos enlaces del código original:
+         1) <a href="#" aria-hidden="true" tabindex="1">Enlace oculto</a>
+         2) <a href="#" tabindex="-1">Términos y condiciones</a>
+
+         Motivo:
+         - El primero era inconsistente: estaba oculto para accesibilidad, pero seguía enfocable.
+         - El segundo quitaba un enlace importante del orden normal del teclado.
+         - Ambos podían generar errores en auditorías de accesibilidad-->
+
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+</body>
+</html>
